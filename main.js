@@ -8,25 +8,30 @@ gsap.registerPlugin(ScrollTrigger);
 
 // ================= Custom Text Split (Basic SplitText polyfill) =================
 function splitTextToLines(element) {
-    const text = element.innerText;
-    const words = text.split(' ');
+    const html = element.innerHTML;
+    // Split by <br> or native text boundaries
+    const segments = html.split(/<br\s*\/?>/gi);
+    
     element.innerHTML = '';
     
-    let lineDiv = document.createElement('div');
-    lineDiv.style.display = 'inline-block';
-    let currentLine = [];
-    
-    // Quick approximation for line splitting: just wrap words in span with overflow hidden
-    // For a true "split lines" without plugin, we wrap words, then group them by offsetTop
-    
-    const wordSpans = words.map(word => {
-        const span = document.createElement('span');
-        span.textContent = word + ' ';
-        span.style.display = 'inline-block';
-        element.appendChild(span);
-        return span;
+    segments.forEach((segment, index) => {
+        const words = segment.trim().split(/\s+/);
+        words.forEach(word => {
+            if(!word) return;
+            const span = document.createElement('span');
+            span.innerHTML = word + '&nbsp;';
+            span.style.display = 'inline-block';
+            element.appendChild(span);
+        });
+        // Add native <br> back to force manual breaks
+        if(index < segments.length - 1) {
+            const br = document.createElement('br');
+            element.appendChild(br);
+        }
     });
 
+    const wordSpans = Array.from(element.querySelectorAll('span'));
+    
     let lines = [];
     let lastTop = -1;
     let currentLineSpans = [];
@@ -50,10 +55,11 @@ function splitTextToLines(element) {
     lines.forEach(lineSpans => {
         const maskDiv = document.createElement('span');
         maskDiv.className = 'line-mask';
+        maskDiv.style.display = 'block';
         
         const innerDiv = document.createElement('span');
-        innerDiv.style.display = 'inline-block';
         innerDiv.className = 'line-inner';
+        innerDiv.style.display = 'inline-block';
         
         lineSpans.forEach(span => {
             innerDiv.appendChild(span);
@@ -61,7 +67,6 @@ function splitTextToLines(element) {
         
         maskDiv.appendChild(innerDiv);
         element.appendChild(maskDiv);
-        element.appendChild(document.createTextNode(' '));
     });
 
     return element.querySelectorAll('.line-inner');
@@ -209,33 +214,24 @@ function initScrollAnimations() {
     });
 
     // Marquee Double Setup (clone for infinite effect)
-    const marqueeTrack = document.querySelector('.marquee__inner--double .marquee__track');
-    if(marqueeTrack) {
-        const clone = marqueeTrack.cloneNode(true);
-        document.querySelector('.marquee__inner--double').appendChild(clone);
-        
-        gsap.to('.marquee__inner--double', {
-            xPercent: -50,
-            ease: 'none',
-            duration: 20,
-            repeat: -1
-        });
-    }
-
-    // Hero Marquee infinite
-    const heroMarquee = document.querySelector('.hero__marquee-base .marquee__inner');
-    if(heroMarquee) {
-        const clone = heroMarquee.cloneNode(true);
-        document.querySelector('.hero__marquee-base').appendChild(clone);
-        document.querySelector('.hero__marquee-base').style.display = 'flex';
-        
-        gsap.to('.hero__marquee-base', {
-            x: () => -heroMarquee.offsetWidth,
-            ease: 'none',
-            duration: 15,
-            repeat: -1
-        });
-    }
+    const marquees = document.querySelectorAll('.marquee__inner--double');
+    marquees.forEach(marquee => {
+        const track = marquee.querySelector('.marquee__track');
+        if (track) {
+            const clone = track.cloneNode(true);
+            marquee.appendChild(clone);
+            
+            // Get speed from data attribute or use default
+            const duration = marquee.closest('.marquee--fast') ? 20 : 15;
+            
+            gsap.to(marquee, {
+                xPercent: -50,
+                ease: 'none',
+                duration: duration,
+                repeat: -1
+            });
+        }
+    });
 
     // Kinetic Section (Horizontal Scroll)
     const kineticWrapper = document.querySelector('.kinetic__wrapper');

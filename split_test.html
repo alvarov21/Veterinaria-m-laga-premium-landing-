@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head><style>
+.line-mask { overflow: hidden; display: block; border: 1px solid red;}
+.line-inner { display: inline-block; transform: translateY(0); }
+</style></head>
+<body style="width: 200px;">
+<h1 id="test">Tu<br>veterinario<br>de barrio en<br>el centro de<br>Málaga.</h1>
+<p id="test2">Medicina general, diagnóstico y cirugía para perros y gatos. Trato cercano, precios<br>claros y más de tres décadas cuidando a las mascotas del barrio.</p>
+<script>
+function splitTextToLines(element) {
+    const html = element.innerHTML;
+    const segments = html.split(/<br\s*\/?>/gi);
+    
+    element.innerHTML = '';
+    
+    segments.forEach((segment, index) => {
+        const words = segment.trim().split(/\s+/);
+        words.forEach(word => {
+            if(!word) return;
+            const span = document.createElement('span');
+            span.innerHTML = word + '&nbsp;';
+            span.style.display = 'inline-block';
+            element.appendChild(span);
+        });
+        if(index < segments.length - 1) {
+            const br = document.createElement('br');
+            element.appendChild(br);
+        }
+    });
+
+    const wordSpans = Array.from(element.querySelectorAll('span'));
+    
+    let lines = [];
+    let lastTop = -1;
+    let currentLineSpans = [];
+
+    wordSpans.forEach(span => {
+        const top = span.offsetTop;
+        if (top !== lastTop) {
+            if (currentLineSpans.length > 0) {
+                lines.push(currentLineSpans);
+            }
+            currentLineSpans = [span];
+            lastTop = top;
+        } else {
+            currentLineSpans.push(span);
+        }
+    });
+    if (currentLineSpans.length > 0) lines.push(currentLineSpans);
+
+    element.innerHTML = '';
+    
+    lines.forEach(lineSpans => {
+        const maskDiv = document.createElement('span');
+        maskDiv.className = 'line-mask';
+        maskDiv.style.display = 'block';
+        
+        const innerDiv = document.createElement('span');
+        innerDiv.className = 'line-inner';
+        innerDiv.style.display = 'inline-block';
+        
+        lineSpans.forEach(span => {
+            innerDiv.appendChild(span);
+        });
+        
+        maskDiv.appendChild(innerDiv);
+        element.appendChild(maskDiv);
+    });
+
+    return element.querySelectorAll('.line-inner');
+}
+splitTextToLines(document.getElementById('test'));
+splitTextToLines(document.getElementById('test2'));
+console.log(document.body.innerHTML);
+</script>
+</body>
+</html>
