@@ -384,10 +384,188 @@ if (cursor && !prefersReducedMotion) {
         gsap.set(cursor, { x: cursorX, y: cursorY });
     });
 
-    // Hover interactions
-    const interactables = document.querySelectorAll('a, button');
+    // Custom cursor hover states
+    const interactables = document.querySelectorAll('a, button, .faq-item__trigger, input');
     interactables.forEach(el => {
         el.addEventListener('mouseenter', () => cursor.classList.add('is-active'));
         el.addEventListener('mouseleave', () => cursor.classList.remove('is-active'));
     });
 }
+
+// ================= U-Path Portfolio Carousel & Funnel =================
+
+function initUPathCarousel() {
+    const pivot = document.getElementById('u-path-pivot');
+    if (!pivot) return;
+
+    // --- CAROUSEL SETUP ---
+    const R = 720;
+    const N = 8;
+    const STEP = 22.5; // 180 / 8
+    let baseAngle = 0;
+    const SPEED = 0.09;
+    
+    // Create cards
+    const cardData = [
+        "Cirugía de fémur exitosa",
+        "Diagnóstico por imagen",
+        "Rehabilitación completa",
+        "Limpieza dental sin dolor",
+        "Intervención de urgencia",
+        "Chequeo geriátrico",
+        "Medicina felina avanzada",
+        "Traumatología y ortopedia"
+    ];
+
+    const cards = [];
+    for (let i = 0; i < N; i++) {
+        const card = document.createElement('div');
+        card.className = 'u-path-card';
+        card.innerHTML = `
+            <div class="u-path-card-title">${cardData[i]}</div>
+            <div class="u-path-card-skeleton"></div>
+            <div class="u-path-card-skeleton short"></div>
+            <div class="u-path-card-pill"></div>
+        `;
+        pivot.appendChild(card);
+        cards.push(card);
+    }
+
+    function renderCarousel() {
+        baseAngle += SPEED;
+        
+        cards.forEach((card, i) => {
+            // Angle mapping: base + offset, wrapped to [-90, 90)
+            let a = ((baseAngle + i * STEP + 90) % 180 + 180) % 180 - 90;
+            
+            // Transform: rotate first, then translateZ INWARD (-R)
+            card.style.transform = `rotateY(${a}deg) translateZ(${-R}px)`;
+            
+            // Opacity and filter (t = |a|/90)
+            let t = Math.abs(a) / 90;
+            let opacity = Math.max(0, 1 - Math.pow(t, 3));
+            let brightness = 0.7 + 0.3 * t;
+            
+            card.style.opacity = opacity.toFixed(3);
+            card.style.filter = `brightness(${brightness.toFixed(2)})`;
+            
+            // Z-index: nearer cards (t close to 1) stack on top
+            card.style.zIndex = 100 + Math.round(t * 50);
+        });
+        
+        requestAnimationFrame(renderCarousel);
+    }
+    renderCarousel();
+
+    // --- FUNNEL LOGIC ---
+    const headline = document.querySelector('.u-path-header');
+    const strip = document.querySelector('.u-path-strip');
+    
+    // Step 1
+    const budgetInput = document.getElementById('budget-input');
+    const budgetMirror = document.getElementById('budget-mirror');
+    const nextBtn = document.getElementById('next-to-2');
+    const icon1 = document.querySelector('#step-1 .funnel-icon');
+    
+    // Step 2
+    const emailInput = document.getElementById('email-input');
+    const emailMirror = document.getElementById('email-mirror');
+    const submitBtn = document.getElementById('submit-funnel');
+    const icon2 = document.querySelector('#step-2 .funnel-icon-svg');
+
+    // Steps
+    const step1 = document.getElementById('step-1');
+    const step2 = document.getElementById('step-2');
+    const step3 = document.getElementById('step-3');
+
+    // Format numbers with dots
+    function formatNumber(val) {
+        let nums = val.replace(/\D/g, '').slice(0, 9);
+        return nums.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
+
+    if(budgetInput) {
+        // Initialize mirror text to calculate width
+        budgetMirror.textContent = budgetInput.placeholder;
+
+        budgetInput.addEventListener('input', (e) => {
+            let val = formatNumber(e.target.value);
+            e.target.value = val;
+            budgetMirror.textContent = val || budgetInput.placeholder;
+            
+            if (val.length > 0) {
+                headline.classList.add('dimmed');
+                nextBtn.classList.remove('hidden');
+                icon1.style.opacity = '1';
+            } else {
+                headline.classList.remove('dimmed');
+                nextBtn.classList.add('hidden');
+                icon1.style.opacity = '0.35';
+            }
+        });
+
+        budgetInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && budgetInput.value.length > 0) {
+                goToStep2();
+            }
+        });
+    }
+
+    if(nextBtn) {
+        nextBtn.addEventListener('click', goToStep2);
+    }
+
+    function goToStep2() {
+        step1.classList.remove('funnel-step--active');
+        step1.classList.add('funnel-step--exiting');
+        
+        setTimeout(() => {
+            step2.classList.add('funnel-step--active');
+            emailInput.focus();
+        }, 380);
+    }
+
+    if(emailInput) {
+        // Initialize mirror text to calculate width
+        emailMirror.textContent = emailInput.placeholder;
+
+        emailInput.addEventListener('input', (e) => {
+            let val = e.target.value;
+            emailMirror.textContent = val || emailInput.placeholder;
+            
+            if (val.includes('@')) {
+                submitBtn.classList.remove('hidden');
+                icon2.style.opacity = '1';
+            } else {
+                submitBtn.classList.add('hidden');
+                icon2.style.opacity = '0.35';
+            }
+        });
+
+        emailInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && emailInput.value.includes('@')) {
+                submitFunnel();
+            }
+        });
+    }
+
+    if(submitBtn) {
+        submitBtn.addEventListener('click', submitFunnel);
+    }
+
+    function submitFunnel() {
+        step2.classList.remove('funnel-step--active');
+        step2.classList.add('funnel-step--exiting');
+        
+        // Populate summary
+        document.getElementById('summary-budget').textContent = '€ ' + budgetInput.value;
+        document.getElementById('summary-email').textContent = emailInput.value;
+
+        setTimeout(() => {
+            step3.classList.add('funnel-step--active');
+            strip.classList.add('fade-out');
+        }, 380);
+    }
+}
+
+window.addEventListener('DOMContentLoaded', initUPathCarousel);

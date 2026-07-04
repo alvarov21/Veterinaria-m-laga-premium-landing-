@@ -51,9 +51,7 @@
     <!-- Google Fonts: Inter Tight -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-
-    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -330,6 +328,62 @@
                             <p class="pillar-desc">Seguimiento real de cada caso, de la primera consulta al alta.</p>
                         </li>
                     </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio U-Path Carousel -->
+        <section id="casos" class="portfolio-u-path">
+            <div class="u-path-container">
+                <div class="u-path-header">
+                    <h2 class="u-path-headline">Casos Clínicos Reales. <br><span class="u-path-headline-serif">Medicina de vanguardia.</span></h2>
+                </div>
+
+                <!-- Funnel -->
+                <div class="u-path-funnel">
+                    <!-- Step 1: Budget -->
+                    <div class="funnel-step funnel-step--active" id="step-1">
+                        <div class="funnel-input-group">
+                            <span class="funnel-icon opacity-35">€</span>
+                            <div class="funnel-input-wrapper">
+                                <input type="text" class="funnel-input" id="budget-input" placeholder="tu presupuesto" autocomplete="off">
+                                <span class="funnel-input-mirror" id="budget-mirror"></span>
+                            </div>
+                        </div>
+                        <button class="funnel-next-btn hidden" id="next-to-2">Okay, next &rarr;</button>
+                    </div>
+
+                    <!-- Step 2: Email -->
+                    <div class="funnel-step" id="step-2">
+                        <div class="funnel-input-group">
+                            <svg class="funnel-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 7.00005L10.2 11.65C11.2667 12.45 12.7333 12.45 13.8 11.65L20 7" stroke-linecap="round" stroke-linejoin="round"/><rect x="3" y="5" width="18" height="14" rx="2" stroke-linecap="round"/></svg>
+                            <div class="funnel-input-wrapper">
+                                <input type="email" class="funnel-input" id="email-input" placeholder="tu email" autocomplete="off">
+                                <span class="funnel-input-mirror" id="email-mirror"></span>
+                            </div>
+                        </div>
+                        <button class="funnel-submit-btn hidden" id="submit-funnel">&rarr;</button>
+                    </div>
+
+                    <!-- Step 3: Success -->
+                    <div class="funnel-step funnel-success" id="step-3">
+                        <div class="success-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        </div>
+                        <div class="success-text">Solicitud <span class="success-serif">recibida.</span></div>
+                        <div class="success-subtext">Te contactaremos en breve.</div>
+                        <div class="success-summary">
+                            <div class="summary-row"><span class="summary-label">presupuesto</span> <span class="summary-val" id="summary-budget"></span></div>
+                            <div class="summary-row"><span class="summary-label">email</span> <span class="summary-val" id="summary-email"></span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3D Carousel Setup -->
+                <div class="u-path-strip">
+                    <div class="u-path-pivot" id="u-path-pivot">
+                        <!-- Cards will be injected by JS -->
+                    </div>
                 </div>
             </div>
         </section>
