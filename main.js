@@ -399,7 +399,7 @@ function initUPathCarousel() {
     if (!pivot) return;
 
     // --- CAROUSEL SETUP ---
-    const R = 720;
+    const R = 900; // Increased from 720 to prevent overlap of larger cards
     const N = 8;
     const STEP = 22.5; // 180 / 8
     let baseAngle = 0;
