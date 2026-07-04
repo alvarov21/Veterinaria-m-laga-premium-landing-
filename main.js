@@ -121,7 +121,8 @@ window.addEventListener('load', () => {
         })
         // Reveal Hero content smoothly
         .from('.navbar', { y: '-100%', duration: 1, ease: 'power4.out' }, '-=0.6')
-        .from('.hero__video-wrapper', { scale: 1.1, opacity: 0, duration: 1.5, ease: 'power4.out' }, '-=1')
+        .from('.hero__visual-inner', { clipPath: 'inset(100% 0 0 0)', duration: 1.5, ease: 'power4.out' }, '-=1')
+        .from('.hero__image', { scale: 1.1, duration: 1.5, ease: 'power4.out' }, '-=1.5')
         .from(heroTitleLines, { y: '110%', duration: 1, stagger: 0.08, ease: 'power4.out' }, '-=1')
         .from(heroSubLines, { y: '110%', duration: 1, stagger: 0.08, ease: 'power4.out' }, '-=0.8')
         .from('.hero__cta', { y: 40, opacity: 0, duration: 1, ease: 'power4.out' }, '-=0.6');
