@@ -6,11 +6,11 @@
 
 :root {
     /* Colors */
-    --c-bg: #0A0A0A;
-    --c-text: #F5F5F0;
-    --c-muted: #8A8A8A;
-    --c-accent: #9DBBA4;
-    --c-border: rgba(255, 255, 255, 0.12);
+    --c-bg: #FFFFFF; /* Blanco */
+    --c-text: #4A151C; /* Granate oscuro */
+    --c-muted: #9E7A7F; /* Granate mutado */
+    --c-accent: #E8CCD1; /* Rosado ligero */
+    --c-border: rgba(74, 21, 28, 0.12); /* Borde basado en el granate */
 
     /* Typography */
     --font-primary: 'Inter Tight', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -211,9 +211,8 @@ h3 {
         border-radius: 50%;
         pointer-events: none;
         z-index: 9999;
-        mix-blend-mode: difference;
         transform: translate(-50%, -50%);
-        transition: width 0.3s, height 0.3s;
+        transition: width 0.3s, height 0.3s, background-color 0.3s;
     }
     .cursor-dot.is-active {
         width: 40px;
@@ -267,8 +266,7 @@ h3 {
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
-    mix-blend-mode: difference;
-    transition: transform 0.4s var(--ease-out-expo);
+    transition: transform 0.4s var(--ease-out-expo), background-color 0.4s;
 }
 
 .navbar.is-hidden {
@@ -402,7 +400,7 @@ h3 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.8) 100%);
+    background: linear-gradient(to bottom, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.9) 100%);
 }
 
 .hero__content {
@@ -429,7 +427,7 @@ h3 {
     width: 100%;
     padding: 1.5rem 0;
     border-top: 1px solid var(--c-border);
-    background: rgba(10, 10, 10, 0.5);
+    background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(10px);
     z-index: 2;
 }
@@ -523,7 +521,7 @@ h3 {
 
 .review-card {
     flex: 0 0 300px;
-    background: rgba(255,255,255,0.03);
+    background: rgba(74, 21, 28, 0.03);
     border: 1px solid var(--c-border);
     border-radius: 16px;
     padding: 2rem;
@@ -537,7 +535,7 @@ h3 {
 }
 
 .review-card:hover {
-    background: rgba(255,255,255,0.06);
+    background: rgba(74, 21, 28, 0.06);
 }
 
 .review-card__header {
@@ -742,7 +740,7 @@ h3 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(10,10,10,0.6);
+    background: rgba(255,255,255,0.6);
     z-index: 0;
 }
 
