@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="es" class="lenis lenis-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Veterinaria en Málaga Centro | Cristo de la Epidemia</title>
+    <meta name="description" content="Medicina general, diagnóstico y cirugía para perros y gatos. Tu veterinario de barrio en el centro de Málaga (El Ejido, La Victoria, Olletas) con más de 35 años de experiencia.">
+    
+    <!-- Local SEO Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VeterinaryCare",
+      "name": "Clínica Veterinaria Cristo de la Epidemia",
+      "image": "",
+      "@id": "",
+      "url": "",
+      "telephone": "952266949",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "C. Gordón, 15",
+        "addressLocality": "Málaga",
+        "postalCode": "29013",
+        "addressCountry": "ES"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 36.7289,
+        "longitude": -4.4143
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "09:30",
+        "closes": "20:00"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.6",
+        "reviewCount": "420"
+      }
+    }
+    </script>
+
+    <!-- Google Fonts: Inter Tight -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Cursor Dot -->
+    <div class="cursor-dot"></div>
+
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader__content">
+            <span class="preloader__text">Cristo de la Epidemia</span>
+            <svg class="preloader__icon" viewBox="0 0 24 24" fill="currentColor">
+                <!-- Paw icon -->
+                <path d="M8.5 6.5C8.5 7.88071 7.38071 9 6 9C4.61929 9 3.5 7.88071 3.5 6.5C3.5 5.11929 4.61929 4 6 4C7.38071 4 8.5 5.11929 8.5 6.5Z"/>
+                <path d="M15.5 6.5C15.5 7.88071 14.3807 9 13 9C11.6193 9 10.5 7.88071 10.5 6.5C10.5 5.11929 11.6193 4 13 4C14.3807 4 15.5 5.11929 15.5 6.5Z"/>
+                <path d="M20.5 9.5C20.5 10.8807 19.3807 12 18 12C16.6193 12 15.5 10.8807 15.5 9.5C15.5 8.11929 16.6193 7 18 7C19.3807 7 20.5 8.11929 20.5 9.5Z"/>
+                <path d="M11 12C9.34315 12 8 13.3431 8 15C8 17.5 10 19.5 12 19.5C14 19.5 16 17.5 16 15C16 13.3431 14.6569 12 13 12H11Z"/>
+                <path d="M7 11.5C7 12.8807 5.88071 14 4.5 14C3.11929 14 2 12.8807 2 11.5C2 10.1193 3.11929 9 4.5 9C5.88071 9 7 10.1193 7 11.5Z"/>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Header Navbar -->
+    <header class="navbar">
+        <div class="navbar__logo">
+            <span class="small-caps">Clínica Veterinaria</span>
+            <span>Cristo de la Epidemia</span>
+        </div>
+        <nav class="navbar__links">
+            <a href="#inicio" class="nav-link">Inicio</a>
+            <a href="#servicios" class="nav-link">Servicios</a>
+            <a href="#nosotros" class="nav-link">Nosotros</a>
+            <a href="#faq" class="nav-link">Precios</a>
+            <a href="#contacto" class="nav-link">Contacto</a>
+        </nav>
+        <div class="navbar__ctas">
+            <a href="tel:952266949" class="btn btn--primary">Llámanos</a>
+            <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn btn--ghost">Cómo llegar</a>
+        </div>
+        <button class="navbar__toggle" aria-label="Abrir menú">
+            <span class="navbar__toggle-text">Menú</span>
+        </button>
+    </header>
+
+    <!-- Fullscreen Menu -->
+    <div class="menu-overlay">
+        <div class="menu-overlay__inner">
+            <nav class="menu-overlay__nav">
+                <a href="#inicio" class="menu-link">Inicio</a>
+                <a href="#servicios" class="menu-link">Servicios</a>
+                <a href="#nosotros" class="menu-link">Nosotros</a>
+                <a href="#faq" class="menu-link">Precios</a>
+                <a href="#contacto" class="menu-link">Contacto</a>
+            </nav>
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="inicio" class="hero">
+            <div class="hero__video-wrapper">
+                <video class="hero__video" autoplay muted loop playsinline>
+                    <source src="https://cdn.coverr.co/videos/coverr-dog-looking-out-the-window-3921/1080p.mp4" type="video/mp4">
+                </video>
+                <div class="hero__overlay"></div>
+            </div>
+            
+            <div class="container hero__content">
+                <h1 class="hero__title split-text">Tu veterinario de barrio <br>en el centro de Málaga.</h1>
+                <p class="hero__subtitle split-text">Medicina general, diagnóstico y cirugía para perros y gatos. Trato cercano, precios claros y más de tres décadas cuidando a las mascotas del barrio.</p>
+                <div class="hero__cta reveal-item">
+                    <a href="tel:952266949" class="btn btn--large btn--primary">Pide cita — 952 26 69 49</a>
+                </div>
+            </div>
+
+            <!-- Hero Marquee Base -->
+            <div class="hero__marquee-base marquee">
+                <div class="marquee__inner">
+                    <span>Cristo de la Epidemia</span>
+                    <span class="separator"></span>
+                    <span>Cristo de la Epidemia</span>
+                    <span class="separator"></span>
+                    <span>Cristo de la Epidemia</span>
+                    <span class="separator"></span>
+                    <span>Cristo de la Epidemia</span>
+                    <span class="separator"></span>
+                    <span>Cristo de la Epidemia</span>
+                    <span class="separator"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust Marquee -->
+        <section class="trust-marquee marquee marquee--fast">
+            <div class="container">
+                <p class="eyebrow">(1) Confían en nosotros desde hace más de 35 años</p>
+            </div>
+            <div class="marquee__inner marquee__inner--double mt-4">
+                <div class="marquee__track">
+                    <span>Diagnóstico acertado</span><span class="separator"></span>
+                    <span>Precios honestos</span><span class="separator"></span>
+                    <span>Trato humano</span><span class="separator"></span>
+                    <span>4,6★ en Google</span><span class="separator"></span>
+                    <span>Nos recomiendan otros veterinarios</span><span class="separator"></span>
+                    <span>Clientes de toda la vida</span><span class="separator"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Manifesto & Stats -->
+        <section id="nosotros" class="manifesto section-padding">
+            <div class="container">
+                <h2 class="manifesto__statement split-text">Somos la clínica veterinaria de siempre del barrio Cristo de la Epidemia. Aquí no eres un número: hay familias que llevan más de 35 años confiándonos a sus animales.</h2>
+                
+                <div class="stats-grid mt-8">
+                    <div class="stat-item reveal-item">
+                        <div class="stat-value"><span class="count-up" data-target="4.6" data-decimals="1">0</span>★</div>
+                        <div class="stat-label">Valoración en Google</div>
+                    </div>
+                    <div class="stat-item reveal-item">
+                        <div class="stat-value">+<span class="count-up" data-target="420" data-decimals="0">0</span></div>
+                        <div class="stat-label">Reseñas de clientes</div>
+                    </div>
+                    <div class="stat-item reveal-item">
+                        <div class="stat-value">+<span class="count-up" data-target="35" data-decimals="0">0</span></div>
+                        <div class="stat-label">Años cuidando al barrio</div>
+                    </div>
+                    <div class="stat-item reveal-item">
+                        <div class="stat-value"><span class="count-up" data-target="100" data-decimals="0">0</span>%</div>
+                        <div class="stat-label">Trato cercano y honesto</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Opinions Carousel -->
+        <section class="reviews section-padding">
+            <div class="container">
+                <p class="eyebrow">(2) Lo que dicen de nosotros</p>
+                
+                <div class="reviews__carousel reveal-item mt-4">
+                    <div class="review-card">
+                        <div class="review-card__header">
+                            <div class="avatar">AM</div>
+                            <div>
+                                <div class="review-card__name">Ana María</div>
+                                <div class="review-card__pet">Mascota: Toby (Perro)</div>
+                            </div>
+                        </div>
+                        <p class="review-card__quote">"Llevo 35 años trayendo aquí a mis perros. Son como de la familia, siempre un trato excelente y sin sorpresas en el precio."</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-card__header">
+                            <div class="avatar">JG</div>
+                            <div>
+                                <div class="review-card__name">Javier G.</div>
+                                <div class="review-card__pet">Mascota: Luna (Gata)</div>
+                            </div>
+                        </div>
+                        <p class="review-card__quote">"Dieron con un diagnóstico acertado donde otros no lo vieron. Noelia es una profesional maravillosa, con mucha empatía."</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-card__header">
+                            <div class="avatar">LM</div>
+                            <div>
+                                <div class="review-card__name">Laura Martín</div>
+                                <div class="review-card__pet">Mascota: Rocky</div>
+                            </div>
+                        </div>
+                        <p class="review-card__quote">"Precios justos y transparentes. Siempre te explican las opciones antes de hacer nada. Recomendados 100%."</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-card__header">
+                            <div class="avatar">CM</div>
+                            <div>
+                                <div class="review-card__name">Carlos M.</div>
+                                <div class="review-card__pet">Mascota: Kira</div>
+                            </div>
+                        </div>
+                        <p class="review-card__quote">"Incluso mi veterinario anterior me recomendó venir aquí para una cirugía compleja. Salió todo perfecto."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section id="servicios" class="services section-padding">
+            <div class="container">
+                <p class="eyebrow">(3) Servicios</p>
+                <div class="services__grid mt-4">
+                    
+                    <div class="service-card reveal-image-container">
+                        <div class="service-card__image parallax-img">
+                            <img src="https://images.unsplash.com/photo-1628009368231-7bb7cb8e5157?auto=format&fit=crop&w=800&q=80" alt="Medicina General">
+                        </div>
+                        <div class="service-card__content">
+                            <h3 class="service-card__title">Medicina general y preventiva</h3>
+                            <ul class="service-card__list">
+                                <li>Consulta general (25–35 €)</li>
+                                <li>Vacunación (25–55 €)</li>
+                                <li>Vacuna antirrábica (25–30 €)</li>
+                                <li>Microchip e identificación (30–45 €)</li>
+                                <li>Desparasitación y revisiones</li>
+                            </ul>
+                            <a href="tel:952266949" class="btn btn--primary mt-2">Pide cita</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card reveal-image-container">
+                        <div class="service-card__image parallax-img">
+                            <img src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&w=800&q=80" alt="Diagnóstico">
+                        </div>
+                        <div class="service-card__content">
+                            <h3 class="service-card__title">Diagnóstico</h3>
+                            <ul class="service-card__list">
+                                <li>Analíticas y diagnóstico por imagen (30–90 €)</li>
+                                <li>Valoración honesta antes de cualquier tratamiento</li>
+                                <li>Segunda opinión</li>
+                            </ul>
+                            <a href="tel:952266949" class="btn btn--primary mt-2">Pide cita</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card reveal-image-container">
+                        <div class="service-card__image parallax-img">
+                            <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80" alt="Cirugía">
+                        </div>
+                        <div class="service-card__content">
+                            <h3 class="service-card__title">Cirugía</h3>
+                            <ul class="service-card__list">
+                                <li>Castración gato macho (60–120 €)</li>
+                                <li>Esterilización gata (90–180 €)</li>
+                                <li>Castración/esterilización perro (150–300 €)</li>
+                                <li>Seguimiento postoperatorio</li>
+                            </ul>
+                            <a href="tel:952266949" class="btn btn--primary mt-2">Pide cita</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card reveal-image-container">
+                        <div class="service-card__image parallax-img">
+                            <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=800&q=80" alt="Salud Dental">
+                        </div>
+                        <div class="service-card__content">
+                            <h3 class="service-card__title">Salud dental</h3>
+                            <ul class="service-card__list">
+                                <li>Limpieza dental (80–150 €)</li>
+                                <li>Revisión bucal</li>
+                                <li>Prevención de enfermedad periodontal</li>
+                            </ul>
+                            <a href="tel:952266949" class="btn btn--primary mt-2">Pide cita</a>
+                        </div>
+                    </div>
+
+                </div>
+                <p class="services__note mt-4">Precios orientativos. Te damos presupuesto claro antes de cualquier intervención.</p>
+            </div>
+        </section>
+
+        <!-- Pillars (Sticky) -->
+        <section class="pillars section-padding">
+            <div class="container pillars__layout">
+                <div class="pillars__left">
+                    <div class="pillars__sticky-wrapper">
+                        <div class="pillars__image-container reveal-image-container">
+                            <img src="https://images.unsplash.com/photo-1599443015574-be5fe8a05783?auto=format&fit=crop&w=800&q=80" alt="Cuidado veterinario cercano" class="parallax-img">
+                        </div>
+                    </div>
+                </div>
+                <div class="pillars__right">
+                    <p class="eyebrow mb-4">(4) Nuestros pilares</p>
+                    <ul class="pillars__list">
+                        <li class="pillar-item">
+                            <h3 class="pillar-title">Cercanía.</h3>
+                            <p class="pillar-desc">Te conocemos a ti y a tu mascota por su nombre. Trato de barrio, de toda la vida.</p>
+                        </li>
+                        <li class="pillar-item">
+                            <h3 class="pillar-title">Experiencia.</h3>
+                            <p class="pillar-desc">Más de tres décadas de medicina veterinaria en el centro de Málaga.</p>
+                        </li>
+                        <li class="pillar-item">
+                            <h3 class="pillar-title">Honestidad.</h3>
+                            <p class="pillar-desc">Precios claros y diagnósticos transparentes. Solo te recomendamos lo que tu animal necesita.</p>
+                        </li>
+                        <li class="pillar-item">
+                            <h3 class="pillar-title">Criterio clínico.</h3>
+                            <p class="pillar-desc">Diagnósticos acertados que hasta otros veterinarios nos reconocen derivándonos pacientes.</p>
+                        </li>
+                        <li class="pillar-item">
+                            <h3 class="pillar-title">Compromiso.</h3>
+                            <p class="pillar-desc">Seguimiento real de cada caso, de la primera consulta al alta.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kinetic Headlines -->
+        <section class="kinetic">
+            <div class="kinetic__wrapper">
+                <video class="kinetic__bg" autoplay muted loop playsinline>
+                    <source src="https://cdn.coverr.co/videos/coverr-dog-playing-in-the-park-3920/1080p.mp4" type="video/mp4">
+                </video>
+                <div class="kinetic__overlay"></div>
+                <div class="kinetic__content">
+                    <h2 class="kinetic__headline kinetic__headline--1">Perros y gatos.</h2>
+                    <h2 class="kinetic__headline kinetic__headline--2">De la primera vacuna</h2>
+                    <h2 class="kinetic__headline kinetic__headline--3">a toda una vida.</h2>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="faq section-padding">
+            <div class="container">
+                <p class="eyebrow">(5) Preguntas Frecuentes</p>
+                <div class="faq__accordion mt-4">
+                    <div class="faq-item reveal-item">
+                        <button class="faq-item__trigger">
+                            <span class="faq-item__title">¿Atendéis sin cita previa?</span>
+                            <span class="faq-item__icon">+</span>
+                        </button>
+                        <div class="faq-item__content">
+                            <p>Te recomendamos llamar al 952 26 69 49 para reservar hora y evitar esperas.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item reveal-item">
+                        <button class="faq-item__trigger">
+                            <span class="faq-item__title">¿Cuál es el horario?</span>
+                            <span class="faq-item__icon">+</span>
+                        </button>
+                        <div class="faq-item__content">
+                            <p>De lunes a viernes desde las 9:30. Llámanos para confirmar el horario completo.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item reveal-item">
+                        <button class="faq-item__trigger">
+                            <span class="faq-item__title">¿Cuánto cuesta una consulta?</span>
+                            <span class="faq-item__icon">+</span>
+                        </button>
+                        <div class="faq-item__content">
+                            <p>La consulta general está entre 25 y 35 €. Siempre te damos el precio antes.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item reveal-item">
+                        <button class="faq-item__trigger">
+                            <span class="faq-item__title">¿Atendéis animales exóticos?</span>
+                            <span class="faq-item__icon">+</span>
+                        </button>
+                        <div class="faq-item__content">
+                            <p>Nuestro día a día son perros y gatos. Si tienes otra especie, llámanos y te orientamos.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item reveal-item">
+                        <button class="faq-item__trigger">
+                            <span class="faq-item__title">¿Hacéis cirugías?</span>
+                            <span class="faq-item__icon">+</span>
+                        </button>
+                        <div class="faq-item__content">
+                            <p>Sí: esterilizaciones, castraciones y otras intervenciones, con presupuesto cerrado y seguimiento postoperatorio.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item reveal-item">
+                        <button class="faq-item__trigger">
+                            <span class="faq-item__title">¿Ponéis el microchip?</span>
+                            <span class="faq-item__icon">+</span>
+                        </button>
+                        <div class="faq-item__content">
+                            <p>Sí, identificación con microchip y registro (30–45 €).</p>
+                        </div>
+                    </div>
+                    <div class="faq-item reveal-item">
+                        <button class="faq-item__trigger">
+                            <span class="faq-item__title">Soy nuevo en Málaga, ¿puedo llevar a mi mascota?</span>
+                            <span class="faq-item__icon">+</span>
+                        </button>
+                        <div class="faq-item__content">
+                            <p>Claro. Muchos clientes nuevos y expats nos encuentran por las reseñas de Google. Tráete su cartilla si la tienes.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item reveal-item">
+                        <button class="faq-item__trigger">
+                            <span class="faq-item__title">¿Por qué elegiros?</span>
+                            <span class="faq-item__icon">+</span>
+                        </button>
+                        <div class="faq-item__content">
+                            <p>4,6★ con más de 420 reseñas, 35 años de historia en el barrio y precios honestos. Ven y compruébalo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA & Footer -->
+        <section id="contacto" class="final-section">
+            <div class="final-cta">
+                <div class="container final-cta__content">
+                    <h2 class="final-cta__text split-text">Si buscas un veterinario de confianza en el centro de Málaga, llámanos o pásate por la clínica. Te atendemos con la honestidad de siempre.</h2>
+                    <div class="final-cta__actions reveal-item mt-4">
+                        <a href="tel:952266949" class="btn btn--large btn--primary">Llámanos — 952 26 69 49</a>
+                        <p class="microcopy mt-2">C. Gordón, 15 · 29013 Málaga · L–V desde las 9:30</p>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="footer">
+                <div class="container">
+                    <div class="footer__grid">
+                        <div class="footer__col">
+                            <p class="eyebrow">Navegación</p>
+                            <nav class="footer__nav">
+                                <a href="#inicio">Inicio</a>
+                                <a href="#servicios">Servicios</a>
+                                <a href="#nosotros">Nosotros</a>
+                                <a href="#faq">Precios</a>
+                                <a href="#contacto">Contacto</a>
+                            </nav>
+                        </div>
+                        <div class="footer__col">
+                            <p class="eyebrow">Contacto</p>
+                            <address class="footer__address">
+                                C. Gordón 15<br>
+                                29013 Málaga<br><br>
+                                <a href="tel:952266949">952 26 69 49</a><br>
+                                <a href="https://maps.google.com" target="_blank" rel="noopener" class="link-underline">Cómo llegar</a>
+                            </address>
+                        </div>
+                        <div class="footer__col">
+                            <p class="eyebrow">Legal</p>
+                            <nav class="footer__nav">
+                                <a href="#">Privacidad</a>
+                                <a href="#">Cookies</a>
+                                <a href="#">Aviso Legal</a>
+                            </nav>
+                        </div>
+                    </div>
+                    
+                    <div class="footer__bottom">
+                        <p class="copyright">©2026 Clínica Veterinaria Cristo de la Epidemia. Todos los derechos reservados.</p>
+                    </div>
+                </div>
+                <!-- Giant Wordmark Parallax -->
+                <div class="footer__wordmark-wrapper">
+                    <h2 class="footer__wordmark">Cristo de la Epidemia</h2>
+                </div>
+            </footer>
+        </section>
+    </main>
+
+    <!-- Mobile Sticky CTA -->
+    <a href="tel:952266949" class="mobile-cta">Llámanos: 952 26 69 49</a>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="main.js" defer></script>
+</body>
+</html>
